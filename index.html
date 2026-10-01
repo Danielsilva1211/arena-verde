@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arena Verde — Odds, palpites e estatísticas</title>
+<style>
+:root{--bg:#060b09;--s:#0f1a14;--s2:#13241b;--line:rgba(255,255,255,.08);--l2:rgba(255,255,255,.15);--b:#2ee08a;--b2:#12a45f;--ink:#04160d;--bs:rgba(46,224,138,.13);--t:#e9f4ee;--m:#8ea79a;--d:#63776c;--live:#ff4d4f;--warn:#ffb020;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0}
+body{font:15px/1.45 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--t);background:radial-gradient(900px 520px at 10% -8%,rgba(46,224,138,.11),transparent 62%),var(--bg);overflow-x:hidden}
+h1,h2,h3{margin:0;line-height:1.15}p{margin:0}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}input{font:inherit;color:inherit}
+.c{max-width:1240px;margin:0 auto;padding:0 14px}.n{font-variant-numeric:tabular-nums}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(6,11,9,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hi{display:flex;align-items:center;gap:14px;height:60px}
+.logo{font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px}.logo em{font-style:normal;color:var(--b)}
+.mark{width:28px;height:28px}
+.chip{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:99px;border:1px solid rgba(46,224,138,.35);color:var(--b);background:var(--bs);margin-left:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13.5px;padding:10px 16px;border-radius:11px;border:1px solid transparent}
+.bb{background:linear-gradient(180deg,var(--b),var(--b2));color:var(--ink)}.bg{border-color:var(--l2);background:rgba(255,255,255,.03)}.btn[disabled]{opacity:.4;cursor:not-allowed}
+.tick{border-bottom:1px solid var(--line);background:rgba(46,224,138,.045);overflow:hidden}
+.tt{display:flex;gap:26px;width:max-content;padding:9px 0;animation:mq 50s linear infinite}.tick:hover .tt{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.tk{font-size:12.5px;white-space:nowrap;color:var(--m)}.tk b{color:var(--t);font-weight:600}.tk .o{color:var(--b);font-weight:800}
+.hero{padding:24px 0 4px}.eb{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--b);margin-bottom:8px}
+.hero h1{font-size:clamp(23px,4.6vw,38px);font-weight:800;max-width:20ch}.hero h1 span{color:var(--b)}.sub{color:var(--m);max-width:56ch;margin-top:10px;font-size:14.5px}
+.sh{display:flex;align-items:center;gap:12px;margin:26px 0 14px}.sh h2{font-size:18px;font-weight:800}.sh i{flex:1;height:1px;background:linear-gradient(90deg,var(--l2),transparent)}.sh span{font-size:12.5px;color:var(--m)}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+.pc{flex:0 0 80%;max-width:290px;scroll-snap-align:start;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,var(--s2),var(--s));padding:14px;transition:.2s}
+.pc:hover{border-color:rgba(46,224,138,.4);transform:translateY(-2px)}
+.pt{display:flex;justify-content:space-between;font-size:11.5px;color:var(--m);font-weight:700;margin-bottom:10px;gap:8px}.pt span:last-child{color:var(--d);text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tm{display:flex;align-items:center;gap:9px;padding:4px 0;font-size:13.5px;font-weight:600;min-width:0}.tm b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.cr{width:26px;height:26px;flex:0 0 26px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:800;color:#06130c}
+.pf{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}.pf b{font-size:22px;color:var(--b)}.pf span{font-size:11.5px;color:var(--m);margin-left:6px}
+.day{position:sticky;top:60px;z-index:40;background:rgba(6,11,9,.92);backdrop-filter:blur(12px);border-block:1px solid var(--line);margin-top:24px}
+.days{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:9px 0}
+.dy{flex:0 0 auto;min-width:76px;padding:7px 12px;border-radius:11px;border:1px solid transparent;display:flex;flex-direction:column;align-items:center}
+.dy:hover{background:rgba(255,255,255,.05)}.dy span{font-size:11.5px;font-weight:700;color:var(--m)}.dy b{font-size:10.5px;color:var(--d)}
+.dy.on{background:var(--bs);border-color:rgba(46,224,138,.4)}.dy.on span,.dy.on b{color:var(--b)}
+.fl{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 14px}
+.sr{flex:1 1 220px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--s);padding:0 12px;outline:none}.sr:focus{border-color:rgba(46,224,138,.5)}
+.fc{padding:9px 13px;border-radius:11px;border:1px solid var(--line);background:var(--s);font-size:12.5px;font-weight:700;color:var(--m)}.fc.on{background:var(--b);color:var(--ink);border-color:var(--b)}
+.lay{display:grid;gap:20px;align-items:start;padding-bottom:40px}@media(min-width:1024px){.lay{grid-template-columns:minmax(0,1fr) 330px}}
+.ch{display:flex;align-items:center;gap:8px;margin:18px 2px 10px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}.ch small{color:var(--d);font-weight:600;text-transform:none;letter-spacing:0}
+.lg{border:1px solid var(--line);border-radius:18px;background:var(--s);overflow:hidden;margin-bottom:10px}
+.lh{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;text-align:left;background:linear-gradient(90deg,rgba(46,224,138,.08),transparent 65%)}
+.lh b{flex:1;font-size:14px}.lh span{font-size:11.5px;font-weight:700;color:var(--m);background:rgba(255,255,255,.06);padding:3px 8px;border-radius:99px}
+.rw{display:grid;gap:9px;padding:10px 14px;border-top:1px solid var(--line);grid-template-columns:1fr 36px;grid-template-areas:"t m" "x x" "o o"}
+.rw:hover{background:rgba(255,255,255,.028)}
+@media(min-width:820px){.rw{grid-template-columns:60px minmax(0,1fr) 240px 36px;grid-template-areas:"t x o m";align-items:center;gap:12px}}
+.rt{grid-area:t;font-size:12.5px;font-weight:700;color:var(--m);display:flex;gap:6px;align-items:center}
+.rx{grid-area:x;display:flex;flex-direction:column;min-width:0}.rx b{font-size:13.5px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rx i{font-size:11px;font-style:normal;color:var(--d)}
+.ro{grid-area:o;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.rm{grid-area:m;justify-self:end}
+.lv{font-size:10px;font-weight:800;color:#fff;background:var(--live);padding:2px 6px;border-radius:5px}.hot{font-size:10px;font-weight:800;color:var(--warn);border:1px solid rgba(255,176,32,.35);padding:2px 5px;border-radius:5px}
+.od{display:flex;flex-direction:column;align-items:center;padding:8px 4px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.028);transition:.14s}
+.od:hover{border-color:rgba(46,224,138,.55);background:rgba(46,224,138,.1)}.od span{font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--d)}@media(min-width:820px){.ro .od span{display:none}}
+.od b{font-size:13.5px;font-weight:800}.od.on{background:linear-gradient(180deg,var(--b),var(--b2));border-color:var(--b)}.od.on b,.od.on span{color:var(--ink)}
+.mb{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);color:var(--m);font-size:18px}.mb:hover{color:var(--b)}
+.ex{grid-column:1/-1;border-top:1px dashed var(--l2);background:rgba(0,0,0,.22);padding:11px 0 2px;margin:0 -14px;padding-inline:14px}
+.eg{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}@media(min-width:640px){.eg{grid-template-columns:repeat(3,1fr)}}
+.sb{display:flex;flex-direction:column;gap:14px}@media(min-width:1024px){.sb{position:sticky;top:130px}}
+.cd{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,var(--s2),var(--s));padding:14px}.cd h2{font-size:14px;font-weight:800;display:flex;justify-content:space-between;margin-bottom:12px}
+.cd h2 span{background:var(--b);color:var(--ink);font-size:11px;padding:2px 8px;border-radius:99px}
+.si{max-height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:7px}.em{text-align:center;color:var(--d);font-size:13px;padding:18px 6px}
+.sl{position:relative;padding:9px 28px 9px 10px;border-radius:11px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.sl b{display:block;font-size:12.5px}.sl span{font-size:11px;color:var(--m)}.sl em{float:right;font-style:normal;font-weight:800;color:var(--b)}
+.sl button{position:absolute;top:5px;right:6px;color:var(--d)}
+.ln{display:flex;justify-content:space-between;font-size:13px;margin-top:10px}.ln span{color:var(--m);font-weight:600}.ln.big b{font-size:18px;color:var(--b)}
+.st{display:flex;gap:6px;margin-top:10px}.st button{width:34px;height:36px;border-radius:9px;border:1px solid var(--line);color:var(--m)}.st input{flex:1;min-width:0;height:36px;text-align:center;border-radius:9px;border:1px solid var(--line);background:rgba(0,0,0,.3);outline:none;font-weight:700}
+.dis{font-size:11px;color:var(--m);margin-top:10px;line-height:1.5}
+.ept{padding:30px 16px;text-align:center;border:1px dashed var(--l2);border-radius:18px;color:var(--m)}.ept h3{color:var(--t);margin-bottom:6px}
+.mbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;border:1px solid rgba(46,224,138,.35);background:rgba(10,24,17,.96)}
+.mbar div{flex:1;display:flex;flex-direction:column}.mbar span{font-size:11.5px;color:var(--m)}@media(min-width:1024px){.mbar{display:none}}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);z-index:90;padding:11px 16px;border-radius:12px;font-size:13px;font-weight:700;background:#0d2418;border:1px solid rgba(46,224,138,.45)}
+.ftr{border-top:1px solid var(--line);padding:26px 0 90px;color:var(--d);font-size:12.5px;line-height:1.6}
+</style></head>
+<body><div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel">
+const {useState,useMemo,useRef}=React;
+const hash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0)/4294967295};
+const mul=a=>()=>{a|=0;a=(a+0x6D2B79F5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296};
+const od=v=>v.toFixed(2).replace('.',',');
+const money=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const ini=s=>s.split(/\s+/).filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+const hue=s=>Math.floor(hash(s)*360);
+const crest=s=>({background:`linear-gradient(140deg,hsl(${hue(s)} 62% 62%),hsl(${(hue(s)+42)%360} 58% 44%))`});
+function makeOdds(k){const s=hash(k),r=hash(k+'|d');let pH=.28+.42*s,pD=.27+.05*r,pA=1-pH-pD;if(pA<.12)pA=.12;const sum=pH+pD+pA;return[pH,pD,pA].map(p=>Math.min(19,Math.max(1.06,1.06*sum/p)))}
+const comb=(a,b)=>Math.min(9,(1/(1/a+1/b))*1.05);
+const DAYS=[['qui','Hoje','01/10','Quinta-Feira'],['sex','Sexta','02/10','Sexta-Feira'],['sab','Sábado','03/10','Sábado'],['dom','Domingo','04/10','Domingo'],['seg','Segunda','05/10','Segunda-Feira'],['ter','Terça','06/10','Terça-Feira'],['qua','Quarta','07/10','Quarta-Feira']].map(([key,label,date,full])=>({key,label,date,full}));
+const LG=[
+['Brasil','🇧🇷','Brasileirão Série B',['Atlético Serrano','Náutico Litoral','Operário do Vale','Vera Cruz EC','União Paulista','Rio Branco FC','Grêmio Central','Sport Capibaribe','Comercial Norte','Guarani do Sul']],
+['Brasil','🇧🇷','Copa Verde',['Tocantins EC','Araguaia FC','Pantanal Sport','Amazônia Clube','Cerrado Atlético','Guaporé EC','Solimões FC','Xingu EC']],
+['Brasil','🇧🇷','Campeonato Paulista',['Paulistano FC','Ipiranga EC','Mogiana FC','União do Interior','Piratininga EC','Serra Negra FC','Tietê Clube','Ribeirão AC']],
+['Estados Unidos','🇺🇸','Major League Soccer',['Seattle Northmen','Portland Pines','Austin Wranglers','Miami Waves','Denver Summit','Chicago Northside','LA Pacific','New York Empire']],
+['Costa Rica','🇨🇷','Liga Costarricense',['Deportivo San José','Cartago FC','Heredia United','Puntarenas Clube','Alajuela Deportivo','Limón FC','Guanacaste Sport','Turrialba FC']],
+['Colômbia','🇨🇴','Liga Colombiana',['Once Andino','Alianza del Valle','Capitalinos FC','Antioquia FC','Caribe FC','Risaralda FC','Boyacá FC','Tolima FC']],
+['Argentina','🇦🇷','Liga Profesional',['Porteño FC','Rosario Athletic','Córdoba Unido','Tucumán FC','Mendoza Andes','La Plata FC','Salta Norte','Santa Fe Unión']],
+['Portugal','🇵🇹','Liga Portugal',['Lisboa Atlético','Porto Douro','Braga Minho','Coimbra FC','Faro Algarve','Setúbal FC','Madeira FC','Aveiro Beira']]
+].map(([country,flag,name,clubs])=>({country,flag,name,clubs}));
+const SCH={qui:[[0,5],[1,3],[2,2],[3,4],[4,3],[5,3]],sex:[[0,3],[1,2],[3,3],[6,2],[7,2]],sab:[[0,4],[2,2],[3,3],[4,4],[6,3],[7,2]],dom:[[0,5],[3,4],[4,4],[6,3],[7,3]],seg:[[0,2],[1,2],[7,2]],ter:[[1,2],[2,2],[6,2]],qua:[[0,4],[1,2],[4,4],[7,2]]};
+const TIMES=['16:00','17:30','18:30','19:00','20:30','21:00','21:45','22:00','23:30'];
+const DATA={};
+DAYS.forEach((day,di)=>{const rnd=mul(Math.floor(hash(day.key)*1e9)+7);const out=[];
+SCH[day.key].forEach(([li,cnt])=>{const L=LG[li],off=Math.floor(rnd()*L.clubs.length),ms=[];
+for(let i=0;i<cnt;i++){const hi=(i*2+off)%L.clubs.length;let ai=(i*2+1+off)%L.clubs.length;if(ai===hi)ai=(ai+1)%L.clubs.length;
+const home=L.clubs[hi],away=L.clubs[ai],key=day.key+L.name+home+away;
+const live=di===0&&i<1&&out.length<2;
+ms.push({id:day.key+'-'+li+'-'+i,date:day.date,time:TIMES[Math.floor(rnd()*TIMES.length)],home,away,odds:makeOdds(key),live,minute:live?20+Math.floor(hash(key+'m')*60):0,hot:hash(key+'h')>.74,league:L.name,country:L.country,flag:L.flag})}
+out.push({...L,matches:ms})});DATA[day.key]=out});
+const ALL=Object.values(DATA).flat().flatMap(l=>l.matches);
+const FEAT=DATA.qui.flatMap(l=>l.matches).filter(m=>m.hot).slice(0,8);
+const TODAY=DATA.qui.reduce((n,l)=>n+l.matches.length,0);
+
+const Crest=({n})=><span className="cr" style={crest(n)}>{ini(n)}</span>;
+const Odd=({label,v,on,click})=><button className={'od'+(on?' on':'')} aria-pressed={!!on} onClick={click}><span>{label}</span><b className="n">{od(v)}</b></button>;
+
+function Row({m,sel,toggle,open,setOpen}){
+ const L=['Casa','Empate','Fora'];const[h,d,a]=m.odds;
+ const ex=useMemo(()=>[['1X','Dupla 1X',comb(h,d)],['12','Dupla 12',comb(h,a)],['X2','Dupla X2',comb(d,a)],['btts','Ambas Marcam',1.62+hash(m.id+'b')*.6],['o25','Mais de 2,5',1.68+hash(m.id+'o')*.7],['u25','Menos de 2,5',1.62+hash(m.id+'u')*.5]],[m.id]);
+ const isO=open===m.id,lab=`${m.home} x ${m.away}`;
+ return <div className="rw">
+  <div className="rt">{m.live?<span className="lv">● {m.minute}'</span>:<span className="n">{m.time}</span>}{m.hot&&!m.live&&<span className="hot">TOP</span>}</div>
+  <div className="rx"><b>{m.home}</b><i>{m.away}</i></div>
+  <div className="ro">{m.odds.map((v,i)=><Odd key={i} label={L[i]} v={v} on={sel(m.id+i)} click={()=>toggle({id:m.id+i,label:lab,market:L[i],o:v})}/>)}</div>
+  <div className="rm"><button className="mb" aria-expanded={isO} aria-label="Mais mercados" onClick={()=>setOpen(isO?null:m.id)}>{isO?'−':'+'}</button></div>
+  {isO&&<div className="ex"><div className="eg">{ex.map(([k,l,v])=><Odd key={k} label={l} v={v} on={sel(m.id+k)} click={()=>toggle({id:m.id+k,label:lab,market:l,o:v})}/>)}</div></div>}
+ </div>}
+
+function League({lg,...r}){const[o,setO]=useState(true);
+ return <section className="lg"><button className="lh" aria-expanded={o} onClick={()=>setO(!o)}><span>{lg.flag}</span><b>{lg.name}</b><span>{lg.matches.length} jogos</span><span>{o?'▾':'▸'}</span></button>
+ {o&&lg.matches.map(m=><Row key={m.id} m={m} {...r}/>)}</section>}
+
+function Slip({items,remove,clear,total,stake,setStake,submit}){
+ return <section className="cd" id="bilhete"><h2>Bilhete <span className="n">{items.length}</span></h2>
+ {!items.length?<div className="em">Nenhuma seleção ainda. Toque em uma odd para montar seu bilhete.</div>:<>
+  <div className="si">{items.map(it=><div className="sl" key={it.id}><em className="n">{od(it.o)}</em><b>{it.market}</b><span>{it.label}</span><button onClick={()=>remove(it.id)} aria-label="Remover">✕</button></div>)}</div>
+  <div className="ln"><span>Cotação</span><b className="n">{od(total)}</b></div>
+  <div className="st"><button onClick={()=>setStake(Math.max(1,stake-5))} aria-label="Diminuir">−</button><input type="number" min="1" value={stake} aria-label="Valor da aposta" onChange={e=>setStake(Math.max(1,Number(e.target.value)||1))}/><button onClick={()=>setStake(stake+5)} aria-label="Aumentar">+</button></div>
+  <div className="ln big"><span>Possível retorno:</span><b className="n">{money(total*stake)}</b></div></>}
+ <div style={{display:'flex',gap:8,marginTop:12}}><button className="btn bb" style={{flex:1}} disabled={!items.length} onClick={submit}>Registrar aposta</button>{items.length>0&&<button className="btn bg" onClick={clear}>Limpar</button>}</div>
+ <p className="dis">Simulador demonstrativo: nenhuma aposta é registrada e nenhum valor é processado.</p></section>}
+
+function App(){
+ const[day,setDay]=useState('qui'),[q,setQ]=useState(''),[f,setF]=useState('todos'),[items,setItems]=useState([]),[stake,setStake]=useState(20),[open,setOpen]=useState(null),[toast,setToast]=useState('');
+ const rail=useRef(null);
+ const say=m=>{setToast(m);setTimeout(()=>setToast(''),2400)};
+ const toggle=it=>setItems(p=>p.some(x=>x.id===it.id)?p.filter(x=>x.id!==it.id):[...p,it]);
+ const total=useMemo(()=>items.reduce((a,i)=>a*i.o,1),[items]);
+ const sel=id=>items.some(i=>i.id===id);
+ const term=q.trim().toLowerCase();
+ const pass=m=>(f!=='vivo'||m.live)&&(f!=='hot'||m.hot)&&(!term||(m.home+' '+m.away+' '+m.league+' '+m.country).toLowerCase().includes(term));
+ const shared={sel,toggle,open,setOpen};
+ let body;
+ if(term){const hits=ALL.filter(pass);body=hits.length?<section className="lg">{hits.map(m=><Row key={m.id} m={m} {...shared}/>)}</section>:<div className="ept"><h3>Nenhum resultado encontrado.</h3><p>Tente outro time, liga ou país.</p></div>}
+ else{const shown=DATA[day].map(l=>({...l,matches:l.matches.filter(pass)})).filter(l=>l.matches.length);
+  const by=[];shown.forEach(l=>{const g=by.find(c=>c.country===l.country);g?g.l.push(l):by.push({country:l.country,flag:l.flag,l:[l]})});
+  body=!by.length?<div className="ept"><h3>Nenhum jogo neste filtro.</h3><button className="btn bg" style={{marginTop:10}} onClick={()=>setF('todos')}>Limpar filtros</button></div>:by.map(c=><div key={c.country}><div className="ch"><span>{c.flag}</span>{c.country}<small>{c.l.reduce((n,l)=>n+l.matches.length,0)} jogos</small></div>{c.l.map(l=><League key={l.name} lg={l} {...shared}/>)}</div>)}
+ const tk=ALL.slice(0,14),live=ALL.filter(m=>m.live).length;
+ const go=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+ return <>
+ <header className="hdr"><div className="c hi"><span className="logo"><svg className="mark" viewBox="0 0 40 40"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#54f7a8"/><stop offset="1" stopColor="#0f9d58"/></linearGradient></defs><path d="M20 2 36 8v12c0 9.200-7 15.800-16 18C11 35.800 4 29.200 4 20V8z" fill="url(#g)"/><circle cx="20" cy="19" r="7" fill="#06120c" opacity=".8"/></svg>ARENA<em>VERDE</em></span><span className="chip">Demo</span><button className="btn bb" onClick={()=>go('bilhete')}>Bilhete</button></div></header>
+ <div className="tick"><div className="tt">{[...tk,...tk].map((m,i)=><span className="tk" key={i}>{m.flag} <b>{m.home}</b> <span className="o n">{od(m.odds[0])}</span> · <span className="o n">{od(m.odds[1])}</span> · <b>{m.away}</b> <span className="o n">{od(m.odds[2])}</span></span>)}</div></div>
+ <main>
+ <section className="hero c"><p className="eb">⚡ cotações atualizadas</p><h1>Compare odds de <span>{ALL.length} jogos</span> da semana em um só lugar</h1><p className="sub">Mercados alternativos e um bilhete que calcula cotação, valor da aposta e retorno potencial em tempo real.</p>
+  <div className="sh"><h2>Destaques de Hoje</h2><i/><span>{FEAT.length} seleções</span></div>
+  <div className="rail" ref={rail}>{FEAT.map(m=>{const p=m.odds.indexOf(Math.min(...m.odds));return <article className="pc" key={m.id}><div className="pt"><span>{m.date} · {m.time}</span><span>{m.league}</span></div><div className="tm"><Crest n={m.home}/><b>{m.home}</b></div><div className="tm"><Crest n={m.away}/><b>{m.away}</b></div><div className="pf"><div><b className="n">{od(m.odds[p])}</b><span>{['Casa','Empate','Fora'][p]}</span></div><button className="btn bg" style={{padding:'7px 11px',fontSize:12}} onClick={()=>{setDay('qui');go('jogos')}}>Ver jogo</button></div></article>})}</div>
+ </section>
+ <section className="c" id="jogos" style={{scrollMarginTop:70}}>
+  <div className="day"><div className="days" role="tablist">{DAYS.map(d=><button key={d.key} role="tab" aria-selected={day===d.key} className={'dy'+(day===d.key?' on':'')} onClick={()=>setDay(d.key)}><span>{d.label}</span><b className="n">{d.date} · {DATA[d.key].reduce((a,l)=>a+l.matches.length,0)}</b></button>)}</div></div>
+  <div className="sh"><h2>Jogos Disponíveis</h2><i/><span>{live} ao vivo · {TODAY} hoje</span></div>
+  <div className="lay"><div>
+   <div className="fl"><input className="sr" value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar time, liga ou país…" aria-label="Buscar"/>
+    {[['todos','Todos'],['vivo','Ao Vivo'],['hot','Destaques']].map(([k,t])=><button key={k} className={'fc'+(f===k?' on':'')} onClick={()=>setF(k)}>{t}</button>)}</div>
+   {body}</div>
+   <div className="sb"><Slip items={items} remove={id=>setItems(p=>p.filter(x=>x.id!==id))} clear={()=>{setItems([]);say('Bilhete limpo.')}} total={total} stake={stake} setStake={setStake} submit={()=>say('Bilhete registrado (simulação). Boa sorte!')}/></div>
+  </div>
+ </section></main>
+ <footer className="ftr"><div className="c">Painel de comparação de odds para fins informativos. Dados fictícios — protótipo demonstrativo sem apostas reais. Proibido para menores de 18 anos.</div></footer>
+ {items.length>0&&<div className="mbar"><div><b>{items.length} {items.length===1?'seleção':'seleções'}</b><span>cotação {od(total)} · retorno {money(total*stake)}</span></div><button className="btn bb" onClick={()=>go('bilhete')}>Ver bilhete</button></div>}
+ {toast&&<div className="toast" role="status">{toast}</div>}
+ </>}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>
